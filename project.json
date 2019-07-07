@@ -1,0 +1,27 @@
+{
+  "assets": [],
+  "build": {
+    "build_id": "88FEB3EF-2",
+    "build_number": 2,
+    "build_time": 1561183676771,
+    "release": false
+  },
+  "encryptLevel": 0,
+  "useFeatures": [],
+  "launchConfig": {
+    "displaySplash": true,
+    "hideLogs": false,
+    "splashText": "Powered by Auto.js Pro",
+    "stableMode": true
+  },
+  "mainScriptFile": "main.js",
+  "name": "WechatSport-Auto.js",
+  "optimization": {
+    "removeOpenCv": false,
+    "unusedResources": false
+  },
+  "packageName": "org.WechatSport",
+  "scripts": {},
+  "versionCode": 1,
+  "versionName": "1.0.0"
+}
