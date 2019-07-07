@@ -30,8 +30,8 @@ function Main() {
 
     //最终要post的数据
     var data_post = {
-        'time': Date.parse(new Date()) / 1000,
-        'data': data,
+        'TimeStamp': Date.parse(new Date()) / 1000,
+        'NameStep': data,
     }
     console.log(data_post)
     var url = 'http://' + hostname + '/api/record'
