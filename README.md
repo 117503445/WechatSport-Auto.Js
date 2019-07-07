@@ -1,0 +1,1 @@
+# WechatSport-Auto.Js
