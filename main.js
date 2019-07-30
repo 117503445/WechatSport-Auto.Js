@@ -20,6 +20,7 @@ function Main() {
     EnterStepPage();
 
     while (scrollUp(0)) { }
+    console.log('ex')
     GetData();
     sleep(300);
     while (scrollDown(0)) {
@@ -65,8 +66,8 @@ function GetData() {
 
     var i = 0;
     //当前页的姓名
-    id("bnm").findOne().children().forEach(child => {
-        var target = child.findOne(id("bny"));
+    id("bo0").findOne().children().forEach(child => {
+        var target = child.findOne(id("bob"));
         if (target != null) {
             //console.log(target);
             array_name[i] = target.text();
@@ -76,8 +77,8 @@ function GetData() {
     //console.log(i);
     i = 0;
     //当前页的步数
-    id("bnm").findOne().children().forEach(child => {
-        var target = child.findOne(id("bml"));
+    id("bo0").findOne().children().forEach(child => {
+        var target = child.findOne(id("bmz"));
         if (target != null) {
             //console.log(target);
             array_step[i] = target.text();
