@@ -18,9 +18,7 @@ Main();
 
 function Main() {
     EnterStepPage();
-
     while (scrollUp(0)) { }
-    console.log('ex')
     GetData();
     sleep(300);
     while (scrollDown(0)) {
@@ -35,6 +33,7 @@ function Main() {
         'NameStep': data,
     }
     console.log(data_post)
+    id("lb").findOne().click()
     var url = 'http://' + hostname + '/api/record'
     http.postJson(url, data_post)
 }
@@ -52,7 +51,7 @@ function EnterStepPage() {
 function UnlockScreen() {
     device.wakeUp();
     sleep(500);
-    gesture(500, [540, 1800], [540, 1000]);//上滑唤出密码解锁界面
+    gesture(200, [540, 2000], [540, 500]);//上滑唤出密码解锁界面
     Text(password);
     sleep(500);
     OK();
