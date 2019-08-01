@@ -4,7 +4,9 @@ var hostname = '192.168.1.173'//server
 
 var data = {};
 var isScreenOn = device.isScreenOn();
-
+console.log(1)
+console.log(text('步数排行榜')==null)
+exit()
 if (!DEBUG && isScreenOn) {
     console.log('Release模式且屏幕亮起,脚本停止工作');
     exit();
@@ -33,14 +35,16 @@ function Main() {
         'NameStep': data,
     }
     console.log(data_post)
-    id("lb").findOne().click()
+
+    id("lb").findOne().click()//返回
+
     var url = 'http://' + hostname + '/api/record'
     http.postJson(url, data_post)
 }
 function EnterStepPage() {
-    console.log("Main")
+    console.log("Begin EnterStepPage")
     launchApp("微信");
-    sleep(1000);
+    sleep(1500);
     click("微信运动");
     console.log("Enter 微信运动")
     sleep(300);
