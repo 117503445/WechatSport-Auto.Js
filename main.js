@@ -1,12 +1,10 @@
 var password = '1024';
 var DEBUG = true;
-var hostname = '192.168.1.173'//server
+var hostname = '192.168.31.147'//server
 
 var data = {};
 var isScreenOn = device.isScreenOn();
-console.log(1)
-console.log(text('步数排行榜')==null)
-exit()
+
 if (!DEBUG && isScreenOn) {
     console.log('Release模式且屏幕亮起,脚本停止工作');
     exit();
@@ -39,7 +37,13 @@ function Main() {
     id("lb").findOne().click()//返回
 
     var url = 'http://' + hostname + '/api/record'
-    http.postJson(url, data_post)
+    console.log(url)
+    try {
+        http.postJson(url, data_post)
+        console.log('Success')
+    } catch (e) {
+        console.log('fail')
+    }
 }
 function EnterStepPage() {
     console.log("Begin EnterStepPage")
@@ -50,7 +54,7 @@ function EnterStepPage() {
     sleep(300);
     click("步数排行榜");
     console.log("Enter 步数排行榜")
-    sleep(300);
+    sleep(1000);
 }
 function UnlockScreen() {
     device.wakeUp();
