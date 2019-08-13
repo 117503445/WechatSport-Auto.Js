@@ -60,9 +60,11 @@ function UnlockScreen() {
     device.wakeUp();
     sleep(500);
     gesture(200, [540, 2000], [540, 500]);//上滑唤出密码解锁界面
+    sleep(2000);
     Text(password);
-    sleep(500);
+    sleep(2000);
     OK();
+    sleep(500);    
 }
 
 //获得当前页的数据
