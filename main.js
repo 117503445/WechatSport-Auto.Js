@@ -5,6 +5,9 @@ var hostname = '192.168.31.147'//server
 var data = {};
 var isScreenOn = device.isScreenOn();
 
+
+
+
 if (!DEBUG && isScreenOn) {
     console.log('Release模式且屏幕亮起,脚本停止工作');
     exit();
@@ -31,10 +34,12 @@ function Main() {
     var data_post = {
         'TimeStamp': Date.parse(new Date()) / 1000,
         'NameStep': data,
-    }
-    console.log(data_post)
+    };
+    console.log(data_post);
 
-    id("lb").findOne().click()//返回
+    id("lb").findOne().click();//返回
+    sleep(500);
+    id("l3").findOne().click();//返回
 
     var url = 'http://' + hostname + '/api/record'
     console.log(url)
@@ -59,12 +64,13 @@ function EnterStepPage() {
 function UnlockScreen() {
     device.wakeUp();
     sleep(500);
-    gesture(200, [540, 2000], [540, 500]);//上滑唤出密码解锁界面
+    gesture(1000, [540, 2000], [540, 500]);//上滑唤出密码解锁界面
     sleep(2000);
     Text(password);
+    console.log('input password:', password)
     sleep(2000);
     OK();
-    sleep(500);    
+    sleep(500);
 }
 
 //获得当前页的数据
