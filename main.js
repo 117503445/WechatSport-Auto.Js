@@ -1,12 +1,12 @@
+
 var password = '1024';
 var DEBUG = true;
 var hostname = '192.168.31.147'//server
 
+auto()
+
 var data = {};
 var isScreenOn = device.isScreenOn();
-
-
-
 
 if (!DEBUG && isScreenOn) {
     console.log('Release模式且屏幕亮起,脚本停止工作');
@@ -37,9 +37,12 @@ function Main() {
     };
     console.log(data_post);
 
-    id("lb").findOne().click();//返回
-    sleep(500);
-    id("l3").findOne().click();//返回
+    sleep(500)
+    back()
+    sleep(500)
+    back()
+    sleep(500)
+    back()
 
     var url = 'http://' + hostname + '/api/record'
     console.log(url)
@@ -49,11 +52,19 @@ function Main() {
     } catch (e) {
         console.log('fail')
     }
+
+    if (!isScreenOn) {
+        Power()//lock
+    }
 }
 function EnterStepPage() {
     console.log("Begin EnterStepPage")
     launchApp("微信");
     sleep(1500);
+    if (id('aol').exists()) {//联系人界面
+        back()
+        sleep(300);
+    }
     click("微信运动");
     console.log("Enter 微信运动")
     sleep(300);
@@ -62,15 +73,24 @@ function EnterStepPage() {
     sleep(1000);
 }
 function UnlockScreen() {
-    device.wakeUp();
-    sleep(500);
-    gesture(1000, [540, 2000], [540, 500]);//上滑唤出密码解锁界面
-    sleep(2000);
-    Text(password);
-    console.log('input password:', password)
-    sleep(2000);
-    OK();
-    sleep(500);
+    for (var i = 0; i < 3; i++) {
+        console.log(i)
+        device.wakeUp();
+        sleep(200);
+        gesture(200, [540, 2000], [540, 100]);//上滑唤出密码解锁界面
+        Text(password);
+        console.log(password)
+        sleep(100);
+        OK();
+        sleep(500);
+        if (!text('PIN 码错误').exists()) {
+            console.log('success')
+            break
+        } else {
+            Power()
+            sleep(1000)
+        }
+    }
 }
 
 //获得当前页的数据
