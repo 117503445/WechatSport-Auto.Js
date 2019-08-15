@@ -48,9 +48,9 @@ function Main() {
     console.log(url)
     try {
         http.postJson(url, data_post)
-        console.log('Success')
+        console.log('submit Success')
     } catch (e) {
-        console.log('fail')
+        console.log('submit fail')
     }
 
     if (!isScreenOn) {
