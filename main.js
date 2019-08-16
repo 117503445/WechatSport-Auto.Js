@@ -5,6 +5,20 @@ var hostname = '192.168.31.147'//server
 
 auto()
 
+if (true) {
+    hostname = 'ali.117503445.top'
+}
+
+if (true) {
+    var minutes = new Date().getMinutes()
+    if (minutes % 10 != 0) {
+        console.log('不合适的时间点')
+        exit()
+    }else{
+        console.log('合适的时间点')
+    }
+}
+
 var data = {};
 var isScreenOn = device.isScreenOn();
 
@@ -96,8 +110,8 @@ function UnlockScreen() {
 //获得当前页的数据
 function GetData() {
     //console.log("GetData")
-    var array_name = new Array();
-    var array_step = new Array();
+    var array_name = [];
+    var array_step = [];
 
     var i = 0;
     //当前页的姓名
