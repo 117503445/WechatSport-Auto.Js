@@ -9,7 +9,7 @@ if (true) {
     hostname = 'ali.117503445.top'
 }
 
-if (true) {
+if (false) {
     var minutes = new Date().getMinutes()
     if (minutes % 10 != 0) {
         console.log('不合适的时间点')
